@@ -4,8 +4,8 @@ const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
-const uri = `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.bkfhf.mongodb.net/${process.env.DB_USER}?retryWrites=true&w=majority`;
- 
+const uri = `mongodb://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0-shard-00-00.bkfhf.mongodb.net:27017,cluster0-shard-00-01.bkfhf.mongodb.net:27017,cluster0-shard-00-02.bkfhf.mongodb.net:27017/${process.env.DB_USER}?ssl=true&replicaSet=atlas-loqoji-shard-0&authSource=admin&retryWrites=true&w=majority`;
+
 const app = express();
 
 app.use(bodyParser.json());
